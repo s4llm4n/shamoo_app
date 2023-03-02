@@ -148,6 +148,7 @@ class DetailChatPage extends StatelessWidget {
 
     Widget content() {
       return ListView(
+<<<<<<< HEAD
         padding: EdgeInsets.symmetric(
           horizontal: defaultMargin,
         ),
@@ -161,6 +162,9 @@ class DetailChatPage extends StatelessWidget {
             text: 'Good night, This item is only available in size 42 and 43',
           ),
         ],
+=======
+
+>>>>>>> 675f4c7526bf5e2d1245e3ad56dd13b084b81d01
       );
     }
 
