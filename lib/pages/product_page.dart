@@ -43,7 +43,17 @@ class _ProductPageState extends State<ProductPage> {
 
     Widget familiarShoesCard(String imageUrl) {
       return Container(
-        width: ,
+        width: 54,
+        height: 54,
+        margin: EdgeInsets.only(
+          right: 16,
+        ),
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage(imageUrl),
+          ),
+          borderRadius: BorderRadius.circular(6),
+        ),
       );
     }
 
@@ -111,6 +121,8 @@ class _ProductPageState extends State<ProductPage> {
     }
 
     Widget content() {
+      int index = -1;
+
       return Container(
         width: double.infinity,
         margin: EdgeInsets.only(
@@ -242,8 +254,22 @@ class _ProductPageState extends State<ProductPage> {
                   SizedBox(
                     height: 12,
                   ),
-                  Row(
-                    children: familiarShoes.map((e) => null).toList(),
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: familiarShoes
+                          .map(
+                            (image){
+                              index++;
+                              return Container(
+                                margin: EdgeInsets.only(
+                                  left: index == 0 ? defaultMargin : 0),
+                                child: familiarShoesCard(image),
+                                );
+                            }
+                          )
+                          .toList(),
+                    ),
                   ),
                 ],
               ),
