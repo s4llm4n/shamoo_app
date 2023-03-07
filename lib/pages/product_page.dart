@@ -21,9 +21,12 @@ class _ProductPageState extends State<ProductPage> {
     'assets/image_shoes.png',
     'assets/image_shoes.png',
     'assets/image_shoes.png',
+    'assets/image_shoes.png',
+    'assets/image_shoes.png',
   ];
 
   int currentIndex = 0;
+  bool isWishlist = false;
 
   @override
   Widget build(BuildContext context) {
@@ -165,9 +168,18 @@ class _ProductPageState extends State<ProductPage> {
                       ],
                     ),
                   ),
-                  Image.asset(
-                    'assets/export_wishlist.png',
-                    width: 46,
+                  GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        isWishlist = !isWishlist;
+                      });
+                    },
+                    child: Image.asset(
+                      isWishlist
+                          ? 'assets/button_wishlist_blue.png'
+                          : 'assets/export_wishlist.png',
+                      width: 46,
+                    ),
                   ),
                 ],
               ),
@@ -272,7 +284,9 @@ class _ProductPageState extends State<ProductPage> {
                 ],
               ),
             ),
-
+            SizedBox(
+              height: 20,
+            ),
             // NOTE: BUTTONS
             Container(
               width: double.infinity,
@@ -291,7 +305,7 @@ class _ProductPageState extends State<ProductPage> {
                     ),
                   ),
                   SizedBox(
-                    width: 16,
+                    width: 15,
                   ),
                   Expanded(
                     child: Container(
