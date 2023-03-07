@@ -166,7 +166,7 @@ class _ProductPageState extends State<ProductPage> {
                     ),
                   ),
                   Image.asset(
-                    'assets/button_wishlist.png',
+                    'assets/export_wishlist.png',
                     width: 46,
                   ),
                 ],
@@ -181,11 +181,13 @@ class _ProductPageState extends State<ProductPage> {
                 left: defaultMargin,
                 right: defaultMargin,
               ),
+              padding: EdgeInsets.all(16),
               decoration: BoxDecoration(
                 color: backgroundColor2,
                 borderRadius: BorderRadius.circular(4),
               ),
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
                     'Price stars from',
@@ -252,23 +254,62 @@ class _ProductPageState extends State<ProductPage> {
                         )),
                   ),
                   SizedBox(
-                    height: 12,
+                    height: 20,
                   ),
                   SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
                     child: Row(
-                      children: familiarShoes
-                          .map(
-                            (image){
-                              index++;
-                              return Container(
-                                margin: EdgeInsets.only(
-                                  left: index == 0 ? defaultMargin : 0),
-                                child: familiarShoesCard(image),
-                                );
-                            }
-                          )
-                          .toList(),
+                      children: familiarShoes.map((image) {
+                        index++;
+                        return Container(
+                          margin: EdgeInsets.only(
+                              left: index == 0 ? defaultMargin : 0),
+                          child: familiarShoesCard(image),
+                        );
+                      }).toList(),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+
+            // NOTE: BUTTONS
+            Container(
+              width: double.infinity,
+              margin: EdgeInsets.all(defaultMargin),
+              child: Row(
+                children: [
+                  Container(
+                    width: 54,
+                    height: 54,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage(
+                          'assets/button_chat.png',
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 16,
+                  ),
+                  Expanded(
+                    child: Container(
+                      height: 54,
+                      child: TextButton(
+                        onPressed: () {},
+                        style: TextButton.styleFrom(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                          backgroundColor: primaryColor,
+                        ),
+                        child: Text('Add to Cart',
+                            style: primaryTextStyle.copyWith(
+                              fontSize: 16,
+                              fontWeight: semiBold,
+                            )),
+                      ),
                     ),
                   ),
                 ],
