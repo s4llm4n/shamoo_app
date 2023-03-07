@@ -173,6 +173,15 @@ class _ProductPageState extends State<ProductPage> {
                       setState(() {
                         isWishlist = !isWishlist;
                       });
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          backgroundColor: secondaryColor,
+                          content: Text(
+                            'Has been added to the Wishlist',
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                      );
                     },
                     child: Image.asset(
                       isWishlist
