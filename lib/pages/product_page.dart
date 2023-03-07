@@ -14,6 +14,15 @@ class _ProductPageState extends State<ProductPage> {
     'assets/image_shoes.png',
   ];
 
+  List familiarShoes = [
+    'assets/image_shoes.png',
+    'assets/image_shoes.png',
+    'assets/image_shoes.png',
+    'assets/image_shoes.png',
+    'assets/image_shoes.png',
+    'assets/image_shoes.png',
+  ];
+
   int currentIndex = 0;
 
   @override
@@ -29,6 +38,12 @@ class _ProductPageState extends State<ProductPage> {
           borderRadius: BorderRadius.circular(10),
           color: currentIndex == index ? primaryColor : Color(0xffC4C4C4),
         ),
+      );
+    }
+
+    Widget familiarShoesCard(String imageUrl) {
+      return Container(
+        width: ,
       );
     }
 
@@ -201,6 +216,34 @@ class _ProductPageState extends State<ProductPage> {
                       fontWeight: light,
                     ),
                     textAlign: TextAlign.justify,
+                  ),
+                ],
+              ),
+            ),
+
+            // NOTE: FAMILIAR SHOES
+            Container(
+              width: double.infinity,
+              margin: EdgeInsets.only(
+                top: defaultMargin,
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: defaultMargin,
+                    ),
+                    child: Text('Familiar Shoes',
+                        style: primaryTextStyle.copyWith(
+                          fontWeight: medium,
+                        )),
+                  ),
+                  SizedBox(
+                    height: 12,
+                  ),
+                  Row(
+                    children: familiarShoes.map((e) => null).toList(),
                   ),
                 ],
               ),
